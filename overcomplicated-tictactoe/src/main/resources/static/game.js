@@ -1,5 +1,7 @@
 function checkthebutton (){
     let buttons = document.getElementsByClassName("checkthebutton");
+    let winner = document.getElementById("winner").innerHTML;
+    console.log(winner);
     let os = document.getElementsByClassName("fa-circle-o");
     let xs = document.getElementsByClassName("fa-times");
     let index = 0;
@@ -16,7 +18,7 @@ function checkthebutton (){
                     index += 1;
                 }
             }
-            if(index == 0){
+            if(index == 0 && winner == ""){
                 let url = "/game-move?move=" + buttonId;
                 window.location = url;
             }

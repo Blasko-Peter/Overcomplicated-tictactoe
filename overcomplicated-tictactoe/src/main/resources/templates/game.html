@@ -18,6 +18,7 @@
             <div class="media-body">
                 <h1 class="media-heading">The coolest TicTacToe in the World</h1>
                 <p>OK, just a bit overcomplicated...</p>
+                <h1 id="winner" th:text="${winner}"></h1>
             </div>
             <div class="media-right">
                 <span class="media-heading" th:text="${player.userName}"/>
@@ -87,6 +88,11 @@
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#changeNameModal">
                         Change name
                     </button>
+                    <div th:unless="${winner} == ''">
+                        <button type="button" class="btn btn-primary btn-sm">
+                            Start New Game
+                        </button>
+                    </div>
                     <p class="lead funfact" th:utext="${funfact}"></p>
                 </div>
             </div>

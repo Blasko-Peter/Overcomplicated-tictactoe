@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 @SessionAttributes({"player", "game"})
 public class GameController {
 
+    private String winner = "";
+
     @Autowired
     private FunFactService funFactService;
 
@@ -58,14 +60,18 @@ public class GameController {
         model.addAttribute("funfact", funFactService.addCNFunFact());
         model.addAttribute("comic_uri", comicsService.addComic());
         model.addAttribute("steps", stepService.getStepVisual());
+        model.addAttribute("winner", this.winner);
         return "game";
     }
 
     @GetMapping(value = "/game-move")
     public String gameMove(@ModelAttribute("player") Player player, @ModelAttribute("move") int move) {
-        System.out.println("Player moved " + move);
         stepService.addStep(move, 'X');
-        stepService.addMachineStep();
+        this.winner = stepService.checkWinner();
+        if(this.winner.equals("")){
+            stepService.addMachineStep();
+            this.winner = stepService.checkWinner();
+        }
         return "redirect:/game";
     }
 
