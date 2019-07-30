@@ -100,4 +100,9 @@ public class StepService {
         return isWinner;
     }
 
+    public void newGame(){
+        this.stepCounter = 0;
+        this.machineStep = new MachineStepModel();
+    }
+
 }

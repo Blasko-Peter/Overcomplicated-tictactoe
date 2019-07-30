@@ -75,4 +75,11 @@ public class GameController {
         return "redirect:/game";
     }
 
+    @GetMapping(value = "/new-game")
+    public String newGame(){
+        this.winner = "";
+        stepService.newGame();
+        return "redirect:/game";
+    }
+
 }

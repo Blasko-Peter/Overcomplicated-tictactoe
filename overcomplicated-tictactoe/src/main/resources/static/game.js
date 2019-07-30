@@ -28,3 +28,8 @@ function checkthebutton (){
 }
 
 checkthebutton ();
+
+function startNewGame(){
+    let url = "/new-game";
+    window.location = url;
+}
