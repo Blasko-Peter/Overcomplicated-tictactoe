@@ -1,6 +1,7 @@
 package com.codecool.enterprise.funfact.service;
 
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,20 +11,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-class ComicsServiceTest {
+class CNFunfactCallerTest {
 
     @Autowired
-    private ComicsService comicsService;
+    private CNFunfactCaller cnFunfactCaller;
 
-    @RepeatedTest(50)
-    void generateRandomComicUrl(){
-        String[] str = comicsService.generateRandomComicUrl().split("/");
-        assertThat(Integer.parseInt(str[3])).isBetween(1,1929);
-    }
-
-    @RepeatedTest(50)
-    void getComic(){
-        assertThat(comicsService.getComic().getImg()).isNotEmpty();
+    @RepeatedTest(25)
+    void cnfunfact() {
+        assertThat(cnFunfactCaller.cnfunfact().getUrl()).isNotEmpty();
     }
 
 }
