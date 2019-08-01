@@ -1,7 +1,6 @@
 package com.codecool.enterprise.funfact.service;
 
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,7 +15,7 @@ class CNFunfactCallerTest {
     @Autowired
     private CNFunfactCaller cnFunfactCaller;
 
-    @RepeatedTest(25)
+    @RepeatedTest(50)
     void cnfunfact() {
         assertThat(cnFunfactCaller.cnfunfact().getUrl()).isNotEmpty();
     }

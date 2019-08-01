@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class StepService {
 
-    private MachineStepModel machineStep = new MachineStepModel();
+    public MachineStepModel machineStep = new MachineStepModel();
     private List<String> steps;
     private int stepCounter = 0;
 
